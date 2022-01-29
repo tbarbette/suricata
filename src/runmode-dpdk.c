@@ -889,6 +889,11 @@ static void DeviceInitPortConf(const DPDKIfaceConfig *iconf,
     *port_conf = (struct rte_eth_conf){
             .rxmode = {
                     .mq_mode = ETH_MQ_RX_NONE,
+#if RTE_VERSION >= RTE_VERSION_NUM(21,11,0,0)
+                    .mtu = iconf->mtu,
+#else
+                    .max_rx_pkt_len = iconf->mtu,
+#endif
                     .offloads = 0, // turn every offload off to prevent any packet modification
             },
             .txmode = {

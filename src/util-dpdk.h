@@ -34,6 +34,7 @@
 #include <rte_mempool.h>
 #include <rte_mbuf.h>
 #include <rte_flow.h>
+#include <rte_version.h>
 
 #endif /* HAVE_DPDK */
 
