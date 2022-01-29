@@ -112,6 +112,7 @@
 #define RTE_MBUF_F_RX_L4_CKSUM_GOOD PKT_RX_L4_CKSUM_GOOD
 #define RTE_MBUF_F_RX_L4_CKSUM_BAD  PKT_RX_L4_CKSUM_BAD
 #endif
+#include <rte_version.h>
 
 #endif /* HAVE_DPDK */
 
