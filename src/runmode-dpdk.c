@@ -1130,7 +1130,12 @@ static void DeviceInitPortConf(const DPDKIfaceConfig *iconf,
     DumpRXOffloadCapabilities(dev_info->rx_offload_capa);
     *port_conf = (struct rte_eth_conf){
             .rxmode = {
+
+#if RTE_VERSION >= RTE_VERSION_NUM(21,11,0,0)
+                    .mq_mode = RTE_ETH_MQ_RX_NONE,
+#else
                     .mq_mode = ETH_MQ_RX_NONE,
+#endif
 #if RTE_VERSION >= RTE_VERSION_NUM(21,11,0,0)
                     .mtu = iconf->mtu,
 #else
